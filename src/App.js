@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import SearchForm from "./components/SearchForm";
 import MovieResults from "./components/MovieResults";
 import Store from "./js/store";
+import Spinner from "./components/Spinner";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +32,21 @@ class App extends Component {
   }
 
   render() {
+    let movieList = null;
+    if (Store.getMovieResults().length === 0) {
+      movieList = (
+        <div className="text-center">
+          <div style={{ fontSize: "20px", fontWeight: "bold" }}>
+            Enter movie name..
+          </div>
+          <div>
+            <Spinner />;
+          </div>
+        </div>
+      );
+    } else {
+      movieList = <MovieResults movies={this.state.movies} />;
+    }
     //console.log(this.state, "state");
     return (
       <div className="album py-5 bg-light">
@@ -38,7 +55,8 @@ class App extends Component {
           <SearchForm />
         </div>
         <div className="container pull-down">
-          <MovieResults movies={this.state.movies} />
+          {movieList}
+          {/* <MovieResults movies={this.state.movies} /> */}
         </div>
       </div>
     );

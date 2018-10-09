@@ -28,7 +28,9 @@ class SearchForm extends Component {
               placeholder="search..."
             />
           </div>
-          <button className="btn btn-primary">Search</button>
+          <button style={{ marginBottom: "20px" }} className="btn btn-primary">
+            Search
+          </button>
         </form>
       </div>
     );
