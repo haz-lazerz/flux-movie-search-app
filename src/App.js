@@ -3,7 +3,7 @@ import SearchForm from "./components/SearchForm";
 import MovieResults from "./components/MovieResults";
 import Store from "./js/store";
 import Spinner from "./components/Spinner";
-import "./App.css";
+//import "./App.css";
 
 class App extends Component {
   constructor(props) {
